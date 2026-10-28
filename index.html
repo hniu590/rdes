@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>仁德106天地｜一年六班 班級網站</title>
+<meta name="description" content="一年六班的班級網站：今天的聯絡簿、本週生活目標、公告事項、近期活動、課表與班級常規。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="仁德106天地｜一年六班 班級網站">
+<meta property="og:description" content="今天的聯絡簿、公告事項、近期活動，一個網址都找得到。">
+<meta property="og:url" content="https://hniu590.github.io/rdes/">
+<meta property="og:image" content="https://hniu590.github.io/rdes/og.png">
+<meta name="theme-color" content="#2f7a6b">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Huninn&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">跳到主要內容</a>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#top" id="top">
+      <svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="19" fill="#fffdf7" stroke="#c8423a" stroke-width="3"/><circle cx="22" cy="22" r="14.5" fill="none" stroke="#c8423a" stroke-width="1.4"/><text x="22" y="27" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="13" fill="#c8423a">106</text></svg>
+      <span><b data-bind="site.title">仁德106天地</b><small data-bind="site.subtitle">一年六班 班級網站</small></span>
+    </a>
+    <nav class="nav" aria-label="主要選單">
+      <a href="#notices">公告事項</a><a href="#events">近期活動</a><a href="#corner">班級專區</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="cb-title">
+      <div class="book">
+        <div class="book-head">
+          <div class="cell"><small>月</small><span id="d-m">　</span></div>
+          <div class="cell"><small>日</small><span id="d-d">　</span></div>
+          <div class="cell"><small>星期</small><span id="d-w">　</span></div>
+          <div class="cell"><small>　</small><span>今天的聯絡簿</span></div>
+        </div>
+        <div class="book-body">
+          <h1 id="cb-title">今天的功課和要帶的東西</h1>
+          <p data-bind="contactBook.lead"></p>
+          <a class="btn" id="cb-link" href="#" target="_blank" rel="noopener">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11M9 8h6"/></svg>
+            打開今天的聯絡簿</a>
+          <p class="paper-tip">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2f7a6b" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 20l4-1 11-11-3-3L5 16z"/></svg>
+            <span data-bind="contactBook.tip"></span></p>
+        </div>
+        <div class="stamp" aria-hidden="true"><span><b>106</b>仁德</span></div>
+      </div>
+
+      <aside class="side" aria-label="本週生活目標和聯絡老師">
+        <div class="goal" aria-labelledby="goal-title">
+          <p class="goal-k">本週生活目標</p>
+          <h2 class="goal-t" id="goal-title" data-bind="goal.title"></h2>
+          <p class="goal-d" data-bind="goal.detail"></p>
+          <div class="pts-h"><span>全班集點</span><b id="pts-count"></b></div>
+          <ol class="pts" id="pts"></ol>
+          <p class="pts-note" data-bind="goal.note"></p>
+        </div>
+        <a class="line-btn" id="line-link" href="#" target="_blank" rel="noopener">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2f7a6b" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 4C7 4 3 7.2 3 11.2c0 3.6 3.2 6.5 7.5 7.1l-.4 2.4 3.4-2.3c4.3-.6 7.5-3.6 7.5-7.2C21 7.2 17 4 12 4z"/></svg>
+          <span><b data-bind="line.label"></b><small><span data-bind="line.note"></span>（<span data-bind="line.id"></span>）</small></span>
+        </a>
+      </aside>
+    </section>
+
+    <div class="two">
+      <section id="notices" aria-labelledby="h-notices">
+        <h2 id="h-notices" class="sec-h">公告事項</h2>
+        <div id="notice-list"></div>
+      </section>
+
+      <section id="events" aria-labelledby="h-events">
+        <h2 id="h-events" class="sec-h">近期活動</h2>
+        <div id="countdown"></div>
+        <ol class="tl" id="event-list"></ol>
+        <p class="ev-note" data-bind="eventsNote"></p>
+      </section>
+    </div>
+
+    <section id="corner" aria-labelledby="h-corner">
+      <h2 id="h-corner" class="sec-h">班級專區</h2>
+      <div class="corner">
+        <button type="button" data-open="dlg-schedule">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#2f7a6b" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 4v16M15 4v16"/></svg>
+          <span><b>班級課表</b><small>每天的課和放學時間</small></span></button>
+        <button type="button" data-open="dlg-routines">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#2f7a6b" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 8h12l-1 12H7z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+          <span><b>班級常規</b><small>孩子在學校自己做的事</small></span></button>
+        <a id="photos-link" class="is-soon" aria-disabled="true">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#8a8378" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg>
+          <span><b>活動照片</b><small id="photos-note">準備中</small></span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span><span data-bind="site.title"></span>　<span data-bind="site.author"></span></span>
+    <span>有問題請用 LINE 聯絡老師</span>
+  </footer>
+</div>
+
+<dialog id="dlg-schedule" aria-labelledby="t-schedule">
+  <div class="dlg-head"><h2 id="t-schedule">班級課表</h2><button type="button" class="x" data-close aria-label="關閉">×</button></div>
+  <p class="dlg-sub" data-bind="schedule.term"></p>
+  <div class="tbl-wrap"><table class="sched" id="sched"></table></div>
+  <ul class="dlg-notes" id="sched-notes"></ul>
+</dialog>
+
+<dialog id="dlg-routines" aria-labelledby="t-routines">
+  <div class="dlg-head"><h2 id="t-routines">班級常規</h2><button type="button" class="x" data-close aria-label="關閉">×</button></div>
+  <p class="dlg-sub">在學校，孩子會練習自己做這些事。在家也可以一起提醒喔。</p>
+  <div id="rules"></div>
+</dialog>
+
+<noscript><p class="nojs">這個網頁需要開啟 JavaScript 才能顯示內容。</p></noscript>
+<script src="js/app.js"></script>
+</body>
+</html>
